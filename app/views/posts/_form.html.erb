@@ -1,0 +1,33 @@
+<div class="container">
+  <%= form_with(model: post) do |form| %>
+    <% if post.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(post.errors.count, "error") %> <%= t(:prohibited_this_post_from_being_saved) %></h2>
+
+        <ul>
+          <% post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="my-3 text-center">    
+      <%= form.label t(:max_500_characters), class:"col-md-5 col-xs-11" %>
+    </div>
+
+    <div class="row mx-auto">
+      <div class="my-3 text-center">    
+        <%= form.text_area :body, rows: "7", class:"col-md-5 col-xs-11" %>
+      </div>    
+
+      <div>   
+        <%= form.hidden_field :state, :value => "1" %>
+        <%= form.hidden_field :student_id, :value => current_student.id%>
+      </div>
+
+      <div class="my-3 text-center">    
+        <%= form.submit t(:save_changes), class:"btn btn-success"%>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @student %>
+
+<div class="row col-12">
+  <div class="col-md-5 col-xs-11 mx-auto">
+    <%= link_to t(:Edit_this_student), edit_student_path(@student), class:"btn btn-primary my-2 mx-2" %>
+    <%= link_to t(:back), posts_path, class:"btn btn-primary my-2 mx-2" %>  
+  
+    <%= button_to t(:destroy_this_student), @student, method: :delete, class:"btn btn-danger my-2 mx-2" %>
+  </div>
+</div>

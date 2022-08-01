@@ -1,0 +1,51 @@
+<script>
+ Regionv = "Seleccione región";
+ Communev = "Seleccione comuna"; 
+</script>
+<form>
+    <div class="row col-lg-5 my-3 mx-auto">    
+        <div class="col-md-7 col-xs-10 float-right">
+            <select id="region" name="region" class="form-control my-2" style="width:100%;"></select>
+        </div>
+            <% if false %>
+            <div class="col-md-6 col-xs-10 float-left">
+              <select id="commune" name="commune" class="form-control my-2" style="width:100%;"></select>            
+            </div>
+            <% end %>
+        <div class="col-md-5 col-xs-8 float-left">
+            <button type=”submit” class="btn btn-primary my-2">Buscar</button>
+        </div>
+    </div>    
+</form> 
+<div class=" col-xs-12 col-md-8 mx-auto text-center my-5">
+    <h3 class="my-3"><%= @mensaje %></h3>
+</div>
+<% if @posts.empty? %>
+    <div class=" col-xs-12 col-md-8 mx-auto text-center">
+        <h2 class="my-5">¡ Aún no hay publicaciones en esta zona !</h2>
+    </div>
+<% else %>
+    <% @posts.each do |post| %>
+        <div class=" col-xs-12 col-md-8 mx-auto">
+            <div class="card my-5">
+                <div class="card-body">
+                    <p id="date" style="text-align: right"><%= post.created_at.strftime("%d/%m/%Y") %></p>
+                    <h5 class="card-title"><%= "#{post.name} #{post.lastname}" %></h5>
+                    <p class="card-text"><%= post.body %></p>
+                </div>
+                <ul class="list-group list-group-flush">                
+                    <li class="list-group-item"><%= "#{post.region}, #{post.commune}" %></li>                
+                    <li class="list-group-item"><%= "#{post.university}, #{post.career}" %></li>
+                </ul>
+                <div class="card-body text-center">
+                    <div>
+                        <%= link_to t(:contact), student_contact_index_path(:id => post.student_id), :class => 'navbar-link btn btn-success'  %>
+                    </div>
+                    <div style="text-align: left;">
+                        <a href="mailto:contacto@nuevopaciente.cl" class="text-muted my-5"  style="text-decoration: none">Reportar</a>              
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% end %>
+ <% end %>

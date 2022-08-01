@@ -1,0 +1,11 @@
+<div class="row mx-auto text-center">
+  <h1><%= t(:new_post) %></h1>
+
+  <%= render "form", post: @post %>
+
+  <br>
+
+  <div>
+    <%= link_to t(:back_to_post), posts_path, class:"btn btn-primary m-2" %>
+  </div>
+</div>

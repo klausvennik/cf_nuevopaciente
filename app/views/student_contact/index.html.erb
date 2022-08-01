@@ -1,0 +1,30 @@
+<div class="row">    
+    <div class="col-md-4 col-xs-12 mx-auto">  
+        <h3 class="my-4"><%= t(:contact_to) %> <%= @student.name %> <%= @student.lastname %></h3>
+        <form action=<%= student_contact_success_path %>>        
+            <div class="mb-3">
+                <label class="form-label"><%= t(:name) %></label>
+                <input type="text" class="form-control" id="name" name="name">        
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><%= t(:lastname) %></label>
+                <input type="text" class="form-control" id="lastname" name="lastname">        
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><%= t(:phone) %></label>
+                <input type="text" class="form-control" id="phone" name="phone">        
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><%= t(:email) %></label>
+                <input type="email" class="form-control" id="email" name="email">        
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><%= t(:message) %></label>
+                <textarea class="form-control" id="message" name="message"></textarea>       
+            </div>
+            <input type="hidden" name="email_student" id="email_student" value=<%=  @student.email %>>    
+            <button type="submit" class="btn btn-success me-4">Enviar</button>
+            <%= link_to t(:back), root_path, :class => 'navbar-link btn btn-primary'  %>
+        </form>
+    </div>
+</div>

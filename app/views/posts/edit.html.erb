@@ -1,0 +1,13 @@
+<div class="row col-12">
+  <div class="col-md-7 col-xs-11 mx-auto text-center">
+    <h1><%= t(:edit_post) %></h1>
+  </div>
+
+  <%= render "form", post: @post %>
+  <br>
+
+  <div class="col-md-7 col-xs-11 mx-auto text-center">
+    <%= link_to t(:show_post), @post, class:"btn btn-primary m-2" %>
+    <%= link_to t(:back), posts_path, class:"btn btn-primary m-2" %>
+  </div>
+</div>
