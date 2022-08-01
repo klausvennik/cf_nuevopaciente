@@ -11,3 +11,6 @@ cloudinary_api_secret: R-uJDwXNMB4TJzgdz6b07EXcmCY
 cloudinary_cloud_name: dt22gxnae
 # proyecto_nuevo_paciente
 # cf_nuevopaciente
+
+
+Derechos de autor: Proyecto público solo para fines del curso de bootcamp de codigo facilito. No está permitido clonarlo, copiarlo, distribuilo o compartirlo. 
